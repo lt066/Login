@@ -10,7 +10,6 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
-
             android:theme="@style/MainTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,9 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Setting"
-            android:theme="@style/SettingTheme"
-            >
+        <activity
+            android:name=".Setting"
+            android:theme="@style/SettingTheme" >
+        </activity>
+        <activity android:name=".Login"
+            android:theme="@style/SettingTheme">
         </activity>
     </application>
 

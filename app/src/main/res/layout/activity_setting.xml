@@ -3,9 +3,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.example.administrator.login.Setting">
     <include layout="@layout/tobar"/>
+
+    <Button
+        android:layout_width="240dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/login_button"
+        android:layout_gravity="center"
+        android:background="#880000"
+        />
+
+
 
 
 </LinearLayout>

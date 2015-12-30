@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
     app:theme="@style/ThemeOverlay.AppCompat.ActionBar"
     app:navigationIcon="?attr/homeAsUpIndicator">
     <TextView
