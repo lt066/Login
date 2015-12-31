@@ -6,15 +6,16 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     <style name="SettingTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:title">设置</item>
-
         <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="android:colorPrimary">@color/colorPrimaryDark</item>
+        <item name="android:textColor">#f9f5f5</item>
     </style>
 
     <style name="MainTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:title">主界面</item>
-        <item name="android:colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="android:colorPrimary">@color/colorPrimaryDark</item>
+
+    </style>
+    <style name="MainToolbar" parent="ThemeOverlay.AppCompat.ActionBar">
+
+        <item name="android:textColor">#f9f5f5</item>
     </style>
 </resources>
