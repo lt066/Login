@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.administrator.login.trys_info.try_detail">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            >
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:scaleType="fitXY"
+                android:id="@+id/try_img"/>
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="40dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:background="#b1b1b1"
+                android:layout_alignBottom="@+id/try_img"
+                android:clickable="true"
+                android:id="@+id/open_try_url"
+                >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/iconfont_shuangjiantouxiangyou"
+                    android:layout_centerHorizontal="true"
+                    android:layout_above="@+id/open_try_url_text"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:id="@+id/open_try_url_text"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
+                    android:layout_alignParentBottom="true"
+                    android:text="查看"
+                     />
+            </RelativeLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#afabab"
+                android:layout_below="@+id/try_img"
+                android:layout_above="@+id/try_title"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/try_title"
+                android:layout_alignParentBottom="true" />
+        </RelativeLayout>
+    </ScrollView>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
