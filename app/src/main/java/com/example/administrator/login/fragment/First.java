@@ -288,10 +288,20 @@ public class First extends Fragment implements View.OnClickListener{
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
-                if (volleyError instanceof TimeoutError)
+                if (volleyError instanceof TimeoutError) {
                     Toast.makeText(getActivity(), "连接超时，请重试", Toast.LENGTH_SHORT).show();
-                else if (volleyError instanceof NetworkError)
+                    if(progressDialog.isShowing())
+                        progressDialog.dismiss();
+                    if(mPullToRefreshGridView.isRefreshing())
+                        mPullToRefreshGridView.onRefreshComplete();
+                }
+                else if (volleyError instanceof NetworkError) {
                     Toast.makeText(getActivity(), "网络连接错误，请重试", Toast.LENGTH_SHORT).show();
+                    if(progressDialog.isShowing())
+                        progressDialog.dismiss();
+                    if(mPullToRefreshGridView.isRefreshing())
+                        mPullToRefreshGridView.onRefreshComplete();
+                }
 
             }
         });
