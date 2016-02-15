@@ -18,10 +18,13 @@ package com.handmark.pulltorefresh.library.internal;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.graphics.drawable.AnimationDrawable;
 import android.graphics.drawable.Drawable;
+import android.os.Handler;
+import android.os.Message;
 import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -85,7 +88,6 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 		mHeaderProgress = (ProgressBar) mInnerLayout.findViewById(R.id.pull_to_refresh_progress);
 		mSubHeaderText = (TextView) mInnerLayout.findViewById(R.id.pull_to_refresh_sub_text);
 		mHeaderImage = (ImageView) mInnerLayout.findViewById(R.id.pull_to_refresh_image);
-
 		FrameLayout.LayoutParams lp = (FrameLayout.LayoutParams) mInnerLayout.getLayoutParams();
 
 		switch (mode) {
@@ -181,6 +183,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 		setLoadingDrawable(imageDrawable);
 
 		reset();
+
 	}
 
 	public final void setHeight(int height) {
@@ -221,12 +224,14 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 	}
 
 	public final void onPull(float scaleOfLayout) {
+		mHeaderText.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
 		if (!mUseIntrinsicAnimation) {
 			onPullImpl(scaleOfLayout);
 		}
 	}
 
 	public final void pullToRefresh() {
+		mHeaderImage.setVisibility(View.VISIBLE);
 		if (null != mHeaderText) {
 			mHeaderText.setText(mPullLabel);
 		}
@@ -265,15 +270,23 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 		if (null != mHeaderText) {
 //			mHeaderText.setText(mPullLabel);
 			mHeaderText.setText(mRefreshEndLabel);
+			Resources res = getResources();
+			Drawable drw= res.getDrawable(R.drawable.iconfont_gou);
+			mHeaderText.setCompoundDrawablesWithIntrinsicBounds(drw, null, null, null);
+
 		}
-		mHeaderImage.setVisibility(View.VISIBLE);
+		mHeaderImage.setVisibility(View.GONE);
+
 
 		if (mUseIntrinsicAnimation) {
 			((AnimationDrawable) mHeaderImage.getDrawable()).stop();
 		} else {
 			// Now call the callback
+
 			resetImpl();
+
 		}
+
 
 		if (null != mSubHeaderText) {
 			if (TextUtils.isEmpty(mSubHeaderText.getText())) {
@@ -282,6 +295,7 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 				mSubHeaderText.setVisibility(View.VISIBLE);
 			}
 		}
+
 	}
 
 	@Override

@@ -21,6 +21,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build.VERSION;
 import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.Parcelable;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -791,8 +793,16 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
 		// Always reset both layouts, just in case...
 		mHeaderLayout.reset();
 		mFooterLayout.reset();
+		new Handler()
+		{
+			@Override
+			public void handleMessage(Message msg) {
+				super.handleMessage(msg);
+				smoothScrollTo(0);
+				setState(State.PULL_TO_REFRESH);
+			}
+		}.sendEmptyMessageDelayed(0,1000);
 
-		smoothScrollTo(0);
 	}
 
 	@Override

@@ -122,7 +122,7 @@ public class PullToRefreshListView extends PullToRefreshAdapterViewBase<ListView
 			mRefreshableView.setSelection(selection);
 
 			// Smooth scroll as normal
-			smoothScrollTo(0);
+//			smoothScrollTo(0);
 		}
 	}
 

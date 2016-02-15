@@ -87,7 +87,7 @@ public class First extends Fragment implements View.OnClickListener{
 
 
 
-        myAdapter = new MyAdapter(getContext(),R.layout.gridchirdview);
+        myAdapter = new MyAdapter(getActivity(),R.layout.gridchirdview);
 //        for(int i =0;i<first_num;i++)
 //        {
 //            myAdapter.add(new Trys(img_url[i],trys_data[i][0],trys_data[i][1],trys_data[i][2]));
@@ -161,6 +161,8 @@ public class First extends Fragment implements View.OnClickListener{
             myThread1.start();
             try {
                 myThread1.join();
+                Thread.sleep(500);
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -176,7 +178,6 @@ public class First extends Fragment implements View.OnClickListener{
 //            {
 //                myAdapter.add(new Trys(img_url[i],trys_data[i][0],trys_data[i][1],trys_data[i][2]));
 //            }
-            myAdapter.notifyDataSetChanged();
             mPullToRefreshGridView.onRefreshComplete();
             super.onPostExecute(s);
         }
@@ -191,6 +192,7 @@ public class First extends Fragment implements View.OnClickListener{
             myThread2.start();
             try {
                 myThread2.join();
+                Thread.sleep(500);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -205,7 +207,6 @@ public class First extends Fragment implements View.OnClickListener{
 //            {
 //                myAdapter.add(new Trys(img_url[i],trys_data[i][0],trys_data[i][1],trys_data[i][2]));
 //            }
-            myAdapter.notifyDataSetChanged();
             mPullToRefreshGridView.onRefreshComplete();
             super.onPostExecute(s);
         }
@@ -262,6 +263,7 @@ public class First extends Fragment implements View.OnClickListener{
         {
             myAdapter.add(new Trys(img_url[i],trys_data[i][0],trys_data[i][1],trys_data[i][2]));
         }
+        myAdapter.notifyDataSetChanged();
         ques_ok=false;
 
     }
