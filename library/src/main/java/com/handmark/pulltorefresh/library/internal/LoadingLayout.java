@@ -225,13 +225,14 @@ public abstract class LoadingLayout extends FrameLayout implements ILoadingLayou
 
 	public final void onPull(float scaleOfLayout) {
 		mHeaderText.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
+		mHeaderImage.setVisibility(View.VISIBLE);
 		if (!mUseIntrinsicAnimation) {
 			onPullImpl(scaleOfLayout);
 		}
 	}
 
 	public final void pullToRefresh() {
-		mHeaderImage.setVisibility(View.VISIBLE);
+
 		if (null != mHeaderText) {
 			mHeaderText.setText(mPullLabel);
 		}
